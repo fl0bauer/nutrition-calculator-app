@@ -4,13 +4,13 @@ import { AnimateCount } from '@/components/ui/animate-count';
 import { motion } from 'motion/react';
 
 export interface SummaryProps {
-	calories: number;
-	carbohydrates: number;
-	fat: number;
-	proteins: number;
+	calories?: number;
+	carbohydrates?: number;
+	fat?: number;
+	protein?: number;
 }
 
-export const Summary: FC<SummaryProps> = ({ calories, carbohydrates, fat, proteins }) => (
+export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat = 0, protein = 0 }) => (
 	<div className="flex flex-col gap-4">
 		<motion.div
 			initial={{ scale: 0.6, opacity: 0 }}
@@ -60,7 +60,7 @@ export const Summary: FC<SummaryProps> = ({ calories, carbohydrates, fat, protei
 			>
 				<p className="text-muted-foreground text-xs text-orange-600">Protein</p>
 				<p className="text-xl font-semibold text-orange-900">
-					<AnimateCount to={proteins} duration={3} ease={[0.31, 0.34, 0.34, 1]} />g
+					<AnimateCount to={protein} duration={3} ease={[0.31, 0.34, 0.34, 1]} />g
 				</p>
 			</motion.div>
 		</div>

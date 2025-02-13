@@ -6,11 +6,15 @@ import { Logo } from '@/components/logo';
 import Confetti from 'react-confetti-boom';
 import { CalculatorCard } from '@/components/calculator-card';
 import { SummaryCard } from '@/components/summary-card';
+import { ActivityFactor, calculateMacroNutritions, calculateMaintenanceCalories, Gender } from 'nutrition-calculator';
+import { SummaryProps } from '@/components/summary';
+import { BodyMeasurementsFormProps, BodyMeasurementsFormSchema } from '@/components/forms/body-measurements-form';
 
 type Screen = 'calculator' | 'result';
 
 export default function Home() {
 	const [activeScreen, setActiveScreen] = useState<Screen>('calculator');
+	const [summary, setSummary] = useState<SummaryProps>();
 
 	const animations: Record<Screen, AnimationProps> = {
 		calculator: {
@@ -23,6 +27,26 @@ export default function Home() {
 			animate: { x: 0, opacity: 1, filter: 'blur(0)' },
 			exit: { x: 100, opacity: 0, filter: 'blur(4px)' },
 		},
+	};
+
+	const onSubmit: BodyMeasurementsFormProps['onSubmit'] = ({ gender, weight, height, age, activityFactor }) => {
+		try {
+			const calories = calculateMaintenanceCalories(
+				gender as Gender,
+				{ weight, height, age },
+				activityFactor as ActivityFactor,
+			);
+			const { carbohydrates, fat, protein } = calculateMacroNutritions(calories, {
+				carbohydrates: 50,
+				fat: 20,
+				protein: 30,
+			});
+
+			setSummary({ calories, carbohydrates, fat, protein });
+			setActiveScreen('result');
+		} catch (error) {
+			console.error(error);
+		}
 	};
 
 	return (
@@ -53,8 +77,8 @@ export default function Home() {
 
 			<AnimatePresence mode="wait">
 				<motion.div key={activeScreen} {...animations[activeScreen]}>
-					{activeScreen === 'calculator' && <CalculatorCard onSubmit={() => setActiveScreen('result')} />}
-					{activeScreen === 'result' && <SummaryCard />}
+					{activeScreen === 'calculator' && <CalculatorCard onSubmit={onSubmit} />}
+					{activeScreen === 'result' && <SummaryCard {...summary} />}
 				</motion.div>
 			</AnimatePresence>
 

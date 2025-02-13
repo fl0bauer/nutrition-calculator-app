@@ -24,7 +24,7 @@ const BodyMeasurementsFormSchema = z.object({
 		.number()
 		.min(14, { message: 'Age must be at least 14 years.' })
 		.max(100, { message: 'Age must be smaller than 100 years.' }),
-	activityLevel: z.enum(['sedentary', 'lightActivity', 'moderatelyActive', 'veryActive', 'extraActive']),
+	activityFactor: z.enum(['sedentary', 'lightActivity', 'moderatelyActive', 'veryActive', 'extraActive']),
 });
 
 export interface BodyMeasurementsFormProps {
@@ -39,7 +39,7 @@ export const BodyMeasurementsForm: FC<BodyMeasurementsFormProps> = ({ onSubmit }
 			weight: 80.5,
 			height: 189,
 			age: 25,
-			activityLevel: 'lightActivity',
+			activityFactor: 'lightActivity',
 		},
 	});
 
@@ -74,7 +74,7 @@ export const BodyMeasurementsForm: FC<BodyMeasurementsFormProps> = ({ onSubmit }
 
 				<FormField
 					control={bodyMeasurementsForm.control}
-					name="activityLevel"
+					name="activityFactor"
 					render={({ field }) => <ActivityLevelInput field={field} />}
 				/>
 
@@ -175,7 +175,7 @@ const AgeInput: FC<{
 );
 
 const ActivityLevelInput: FC<{
-	field: ControllerRenderProps<z.infer<typeof BodyMeasurementsFormSchema>, 'activityLevel'>;
+	field: ControllerRenderProps<z.infer<typeof BodyMeasurementsFormSchema>, 'activityFactor'>;
 }> = ({ field }) => (
 	<FormItem>
 		<FormLabel className="flex items-center gap-1">
@@ -185,7 +185,7 @@ const ActivityLevelInput: FC<{
 		<FormControl>
 			<Select onValueChange={field.onChange} defaultValue={field.value}>
 				<SelectTrigger>
-					<SelectValue placeholder="Activity Level" />
+					<SelectValue placeholder="Activity Factor" />
 				</SelectTrigger>
 				<SelectContent>
 					<SelectItem value="sedentary">
