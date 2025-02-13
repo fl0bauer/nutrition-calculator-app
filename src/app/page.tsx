@@ -15,7 +15,7 @@ type Screen = 'calculator' | 'result';
 
 export default function Home() {
 	const [activeScreen, setActiveScreen] = useState<Screen>('calculator');
-	const [summary, setSummary] = useState<SummaryProps>();
+	const [summary, setSummary] = useState<Omit<SummaryProps, 'onGoBack'>>();
 
 	const animations: Record<Screen, AnimationProps> = {
 		calculator: {
@@ -80,7 +80,9 @@ export default function Home() {
 			<AnimatePresence mode="wait">
 				<motion.div key={activeScreen} {...animations[activeScreen]}>
 					{activeScreen === 'calculator' && <CalculatorCard onSubmit={onSubmit} />}
-					{activeScreen === 'result' && <SummaryCard {...summary} />}
+					{activeScreen === 'result' && (
+						<SummaryCard {...summary} onGoBack={() => setActiveScreen('calculator')} />
+					)}
 				</motion.div>
 			</AnimatePresence>
 

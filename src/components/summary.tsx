@@ -1,15 +1,18 @@
 import { FC } from 'react';
 import { AnimateCount } from '@/components/ui/animate-count';
 import { motion } from 'motion/react';
+import { ArrowBigLeftDash } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export interface SummaryProps {
 	calories?: number;
 	carbohydrates?: number;
 	fat?: number;
 	protein?: number;
+	onGoBack: () => void;
 }
 
-export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat = 0, protein = 0 }) => (
+export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat = 0, protein = 0, onGoBack }) => (
 	<div className="flex flex-col gap-4">
 		<motion.div
 			initial={{ scale: 0.6, opacity: 0 }}
@@ -62,5 +65,10 @@ export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat
 				</p>
 			</motion.div>
 		</div>
+
+		<Button className="mt-4 w-fit" variant="secondary" onClick={onGoBack}>
+			<ArrowBigLeftDash className="mr-1 h-6 w-6" />
+			Go To Calculator
+		</Button>
 	</div>
 );
