@@ -8,7 +8,8 @@ import { CalculatorCard } from '@/components/calculator-card';
 import { SummaryCard } from '@/components/summary-card';
 import { ActivityFactor, calculateMacroNutritions, calculateMaintenanceCalories, Gender } from 'nutrition-calculator';
 import { SummaryProps } from '@/components/summary';
-import { BodyMeasurementsFormProps, BodyMeasurementsFormSchema } from '@/components/forms/body-measurements-form';
+import { BodyMeasurementsFormProps } from '@/components/forms/body-measurements-form';
+import { toast } from 'sonner';
 
 type Screen = 'calculator' | 'result';
 
@@ -46,6 +47,7 @@ export default function Home() {
 			setActiveScreen('result');
 		} catch (error) {
 			console.error(error);
+			toast.error('Calculation failed', { description: 'This is probably caused by an internal problem' });
 		}
 	};
 
