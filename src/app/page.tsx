@@ -52,7 +52,7 @@ export default function Home() {
 	};
 
 	return (
-		<div className="flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+		<div className="select-none flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
 			<motion.div
 				initial={{ scale: 0.75, opacity: 0 }}
 				animate={{ scale: 1, opacity: 1 }}

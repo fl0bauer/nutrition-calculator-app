@@ -18,11 +18,11 @@ export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat
 			initial={{ scale: 0.6, opacity: 0 }}
 			animate={{ scale: 1, opacity: 1 }}
 			transition={{ delay: 0.25 }}
-			className="flex items-center gap-4 bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg justify-center text-center"
+			className="select-text flex items-center gap-4 bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg justify-center text-center"
 		>
 			<div className="flex flex-col">
 				<p className="text-muted-foreground text-xs">Maintenance Calories</p>
-				<p className=" text-xl font-semibold">
+				<p className="text-xl font-semibold">
 					<AnimateCount to={calories} duration={3} ease={[0.31, 0.34, 0.34, 1]} /> kcal
 				</p>
 			</div>
@@ -33,7 +33,7 @@ export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat
 				initial={{ opacity: 0, y: 15, scale: 0 }}
 				animate={{ opacity: 1, y: 0, scale: 1 }}
 				transition={{ delay: 0.5, duration: 0.25 }}
-				className="flex flex-col justify-center bg-blue-100 dark:bg-blue-950 dark:bg-opacity-75 p-4 rounded-lg text-center"
+				className="select-text flex flex-col justify-center bg-blue-100 dark:bg-blue-950 dark:bg-opacity-75 p-4 rounded-lg text-center"
 			>
 				<p className="text-xs text-blue-600 dark:text-blue-400">Carbs</p>
 				<p className="text-xl font-semibold text-blue-900 dark:text-blue-200">
@@ -45,7 +45,7 @@ export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat
 				initial={{ opacity: 0, y: 15, scale: 0 }}
 				animate={{ opacity: 1, y: 0, scale: 1 }}
 				transition={{ delay: 0.75, duration: 0.25 }}
-				className="flex flex-col justify-center bg-rose-100 dark:bg-rose-950 dark:bg-opacity-75 p-4 rounded-lg text-center"
+				className="select-text flex flex-col justify-center bg-rose-100 dark:bg-rose-950 dark:bg-opacity-75 p-4 rounded-lg text-center"
 			>
 				<p className="text-xs text-rose-600 dark:text-rose-400">Fat</p>
 				<p className="text-xl font-semibold text-rose-900 dark:text-rose-200">
@@ -57,7 +57,7 @@ export const Summary: FC<SummaryProps> = ({ calories = 0, carbohydrates = 0, fat
 				initial={{ opacity: 0, y: 15, scale: 0 }}
 				animate={{ opacity: 1, y: 0, scale: 1 }}
 				transition={{ delay: 1, duration: 0.25 }}
-				className="flex flex-col justify-center bg-orange-100 dark:bg-orange-950 dark:bg-opacity-75 p-4 rounded-lg text-center"
+				className="select-text flex flex-col justify-center bg-orange-100 dark:bg-orange-950 dark:bg-opacity-75 p-4 rounded-lg text-center"
 			>
 				<p className="text-xs text-orange-600 dark:text-orange-400">Protein</p>
 				<p className="text-xl font-semibold text-orange-900 dark:text-orange-200">
