@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { ControllerRenderProps } from 'react-hook-form';
 import { z } from 'zod';
 import { FormControl, FormItem, FormLabel } from '@/components/ui/form';
@@ -7,7 +7,13 @@ import { BodyMeasurementsFormSchema } from '@/components/forms/body-measurements
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ActivityFactor } from 'nutrition-calculator';
 
-const ActivityFactorOptions: { activityFactor: ActivityFactor; name: string; description: string }[] = [
+interface ActivityFactorOption {
+	activityFactor: ActivityFactor;
+	name: string;
+	description: string;
+}
+
+const ActivityFactorOptions: ActivityFactorOption[] = [
 	{
 		activityFactor: ActivityFactor.Sedentary,
 		name: 'Sedentary',
@@ -31,7 +37,7 @@ const ActivityFactorOptions: { activityFactor: ActivityFactor; name: string; des
 	{
 		activityFactor: ActivityFactor.ExtraActive,
 		name: 'Extra Active',
-		description: 'very hard daily exercise/sports & physical job or 2x day training',
+		description: 'very hard daily exercise/sports & physical job',
 	},
 ];
 
@@ -39,28 +45,41 @@ interface ActivityFactorProps {
 	field: ControllerRenderProps<z.infer<typeof BodyMeasurementsFormSchema>, 'activityFactor'>;
 }
 
-export const ActivityFactorInput: FC<ActivityFactorProps> = ({ field }) => (
-	<FormItem>
-		<FormLabel className="flex items-center gap-1">
-			<Bike className="size-4" />
-			Activity Factor
-		</FormLabel>
-		<FormControl>
-			<Select onValueChange={field.onChange} defaultValue={field.value}>
-				<SelectTrigger>
-					<SelectValue placeholder="Activity Factor" />
-				</SelectTrigger>
-				<SelectContent>
-					{ActivityFactorOptions.map(({ activityFactor, name, description }) => (
-						<SelectItem key={activityFactor} value={activityFactor}>
+export const ActivityFactorInput: FC<ActivityFactorProps> = ({ field }) => {
+	const [selectedOption, setSelectedOption] = useState<ActivityFactorOption>();
+
+	useEffect(() => {
+		setSelectedOption(ActivityFactorOptions.find(({ activityFactor }) => field.value === activityFactor));
+	}, [field, field.value]);
+
+	return (
+		<FormItem>
+			<FormLabel className="flex items-center gap-1">
+				<Bike className="size-4" />
+				Activity Factor
+			</FormLabel>
+			<FormControl>
+				<Select onValueChange={field.onChange} defaultValue={field.value}>
+					<SelectTrigger>
+						<SelectValue placeholder="Activity Factor">
 							<div className="flex gap-1">
-								<span>{name}</span>
-								<span className="text-muted-foreground">{description}</span>
+								<span>{selectedOption?.name}</span>
+								<span className="text-muted-foreground">({selectedOption?.description})</span>
 							</div>
-						</SelectItem>
-					))}
-				</SelectContent>
-			</Select>
-		</FormControl>
-	</FormItem>
-);
+						</SelectValue>
+					</SelectTrigger>
+					<SelectContent>
+						{ActivityFactorOptions.map(({ activityFactor, name, description }) => (
+							<SelectItem key={activityFactor} value={activityFactor}>
+								<div className="flex flex-col">
+									<span>{name}</span>
+									<span className="text-muted-foreground">{description}</span>
+								</div>
+							</SelectItem>
+						))}
+					</SelectContent>
+				</Select>
+			</FormControl>
+		</FormItem>
+	);
+};
