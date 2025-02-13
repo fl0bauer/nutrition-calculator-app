@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { ControllerRenderProps } from 'react-hook-form';
 import { z } from 'zod';
-import { FormControl, FormItem, FormLabel } from '@/components/ui/form';
+import { FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Bike } from 'lucide-react';
 import { BodyMeasurementsFormSchema } from '@/components/forms/body-measurements-form/body-measurements-form-schema';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -80,6 +80,7 @@ export const ActivityFactorInput: FC<ActivityFactorProps> = ({ field }) => {
 					</SelectContent>
 				</Select>
 			</FormControl>
+			<FormMessage />
 		</FormItem>
 	);
 };
