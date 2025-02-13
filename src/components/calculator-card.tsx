@@ -8,8 +8,8 @@ import {
 export const CalculatorCard: FC<BodyMeasurementsFormProps> = (props) => (
 	<Card className="w-full max-w-2xl overflow-hidden">
 		<CardHeader>
-			<CardTitle>Enter your Details</CardTitle>
-			<CardDescription>Please provide accurate information for the most precise calculations</CardDescription>
+			<CardTitle>Get Started with Your Info</CardTitle>
+			<CardDescription>Fill in your measurements to get accurate nutrition insights.</CardDescription>
 		</CardHeader>
 		<CardContent>
 			<BodyMeasurementsForm {...props} />

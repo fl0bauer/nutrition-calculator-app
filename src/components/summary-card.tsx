@@ -5,8 +5,10 @@ import { Summary, SummaryProps } from '@/components/summary';
 export const SummaryCard: FC<SummaryProps> = (props) => (
 	<Card className="w-full max-w-2xl overflow-hidden">
 		<CardHeader>
-			<CardTitle>Your Overview</CardTitle>
-			<CardDescription>Calories and Nutritions based on your provided information</CardDescription>
+			<CardTitle>Your Nutrition Breakdown</CardTitle>
+			<CardDescription>
+				Results are estimates and should be used as a starting point, not as a fixed rule.
+			</CardDescription>
 		</CardHeader>
 		<CardContent>
 			<Summary {...props} />
