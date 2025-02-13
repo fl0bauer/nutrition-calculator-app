@@ -17,12 +17,7 @@ export const WeightInput: FC<WeightInputProps> = ({ field }) => (
 			Weight (kg)
 		</FormLabel>
 		<FormControl>
-			<Input
-				type="number"
-				placeholder="Weight (kg)"
-				{...field}
-				onChange={(event) => field.onChange(+event.target.value)}
-			/>
+			<Input type="number" placeholder="Weight (kg)" {...field} />
 		</FormControl>
 		<FormMessage />
 	</FormItem>

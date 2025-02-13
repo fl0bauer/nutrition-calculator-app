@@ -17,12 +17,7 @@ export const HeightInput: FC<HeightInputProps> = ({ field }) => (
 			Height (cm)
 		</FormLabel>
 		<FormControl>
-			<Input
-				type="number"
-				placeholder="Height (cm)"
-				{...field}
-				onChange={(event) => field.onChange(+event.target.value)}
-			/>
+			<Input type="number" placeholder="Height (cm)" {...field} />
 		</FormControl>
 		<FormMessage />
 	</FormItem>

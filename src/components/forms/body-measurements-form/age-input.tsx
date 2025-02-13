@@ -17,12 +17,7 @@ export const AgeInput: FC<AgeInputProps> = ({ field }) => (
 			Age
 		</FormLabel>
 		<FormControl>
-			<Input
-				type="number"
-				placeholder="Age"
-				{...field}
-				onChange={(event) => field.onChange(+event.target.value)}
-			/>
+			<Input type="number" placeholder="Age" {...field} />
 		</FormControl>
 		<FormMessage />
 	</FormItem>
