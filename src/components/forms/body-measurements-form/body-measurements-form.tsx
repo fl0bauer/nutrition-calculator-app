@@ -20,11 +20,11 @@ export const BodyMeasurementsForm: FC<BodyMeasurementsFormProps> = ({ onSubmit }
 	const bodyMeasurementsForm = useForm<z.infer<typeof BodyMeasurementsFormSchema>>({
 		resolver: zodResolver(BodyMeasurementsFormSchema),
 		defaultValues: {
-			gender: 'male',
-			weight: 80.5,
-			height: 189,
-			age: 25,
-			activityFactor: 'lightActivity',
+			gender: '' as unknown as undefined,
+			weight: '' as unknown as undefined,
+			height: '' as unknown as undefined,
+			age: '' as unknown as undefined,
+			activityFactor: '' as unknown as undefined,
 		},
 	});
 
