@@ -18,7 +18,7 @@ export const GenderInput: FC<GenderInputProps> = ({ field }) => (
 				htmlFor="male"
 				className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
 			>
-				<Mars className="mb-3 h-6 w-6" />
+				<Mars className="text-blue-500 dark:text-blue-400 mb-3 h-6 w-6" />
 				Male
 			</Label>
 		</div>
@@ -28,7 +28,7 @@ export const GenderInput: FC<GenderInputProps> = ({ field }) => (
 				htmlFor="female"
 				className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
 			>
-				<Venus className="mb-3 h-6 w-6" />
+				<Venus className="text-rose-500 dark:text-rose-400 mb-3 h-6 w-6" />
 				Female
 			</Label>
 		</div>
