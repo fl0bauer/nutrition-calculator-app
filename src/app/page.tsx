@@ -78,7 +78,11 @@ export default function Home() {
 			)}
 
 			<AnimatePresence mode="wait">
-				<motion.div key={activeScreen} {...animations[activeScreen]}>
+				<motion.div
+					key={activeScreen}
+					{...animations[activeScreen]}
+					className="flex items-center justify-center w-full"
+				>
 					{activeScreen === 'calculator' && <CalculatorCard onSubmit={onSubmit} />}
 					{activeScreen === 'result' && (
 						<SummaryCard {...summary} onGoBack={() => setActiveScreen('calculator')} />
