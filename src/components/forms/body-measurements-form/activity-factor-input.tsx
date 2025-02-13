@@ -1,8 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { ControllerRenderProps } from 'react-hook-form';
 import { z } from 'zod';
-import { FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Bike } from 'lucide-react';
+import { FormControl, FormItem, FormMessage } from '@/components/ui/form';
 import { BodyMeasurementsFormSchema } from '@/components/forms/body-measurements-form/body-measurements-form-schema';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ActivityFactor } from 'nutrition-calculator';
@@ -54,10 +53,6 @@ export const ActivityFactorInput: FC<ActivityFactorProps> = ({ field }) => {
 
 	return (
 		<FormItem>
-			<FormLabel className="flex items-center gap-1">
-				<Bike className="size-4" />
-				Daily Activity
-			</FormLabel>
 			<FormControl>
 				<Select onValueChange={field.onChange} defaultValue={field.value}>
 					<SelectTrigger>
