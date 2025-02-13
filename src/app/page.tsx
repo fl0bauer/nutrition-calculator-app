@@ -8,8 +8,8 @@ import { CalculatorCard } from '@/components/calculator-card';
 import { SummaryCard } from '@/components/summary-card';
 import { ActivityFactor, calculateMacroNutritions, calculateMaintenanceCalories, Gender } from 'nutrition-calculator';
 import { SummaryProps } from '@/components/summary';
-import { BodyMeasurementsFormProps } from '@/components/forms/body-measurements-form';
 import { toast } from 'sonner';
+import { BodyMeasurementsFormProps } from '@/components/forms/body-measurements-form/body-measurements-form';
 
 type Screen = 'calculator' | 'result';
 
