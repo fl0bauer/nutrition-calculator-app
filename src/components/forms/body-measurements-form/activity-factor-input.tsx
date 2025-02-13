@@ -56,12 +56,12 @@ export const ActivityFactorInput: FC<ActivityFactorProps> = ({ field }) => {
 		<FormItem>
 			<FormLabel className="flex items-center gap-1">
 				<Bike className="size-4" />
-				Activity Factor
+				Daily Activity
 			</FormLabel>
 			<FormControl>
 				<Select onValueChange={field.onChange} defaultValue={field.value}>
 					<SelectTrigger>
-						<SelectValue placeholder="Activity Factor">
+						<SelectValue placeholder="Your Daily Activity Level">
 							<div className="flex gap-1">
 								<span>{selectedOption?.name}</span>
 								<span className="text-muted-foreground">({selectedOption?.description})</span>
