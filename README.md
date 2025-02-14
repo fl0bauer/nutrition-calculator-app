@@ -1,7 +1,7 @@
 # ⚖️ Nutrition Calculator App
 
 This app calculates your Maintenance Caloreis and Macro Nutrition Split with
-the [nutrition-calculator](https://github.com/fl0bauer/nutrition-calculator) [(npm)](https://www.npmjs.com/package/nutrition-calculator)
+the [nutrition-calculator](https://github.com/fl0bauer/nutrition-calculator) ([npm](https://www.npmjs.com/package/nutrition-calculator))
 package.
 
 ## 🎥 App Showcase
