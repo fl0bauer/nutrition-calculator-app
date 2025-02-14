@@ -12,7 +12,7 @@ interface AgeInputProps {
 export const AgeInput: FC<AgeInputProps> = ({ field }) => (
 	<FormItem>
 		<FormControl>
-			<Input type="number" placeholder="Age" {...field} />
+			<Input type="number" inputMode="numeric" placeholder="Age" {...field} />
 		</FormControl>
 		<FormMessage />
 	</FormItem>

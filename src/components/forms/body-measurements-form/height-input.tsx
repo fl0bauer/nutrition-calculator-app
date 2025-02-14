@@ -12,7 +12,7 @@ interface HeightInputProps {
 export const HeightInput: FC<HeightInputProps> = ({ field }) => (
 	<FormItem>
 		<FormControl>
-			<Input type="number" placeholder="Height (cm)" {...field} />
+			<Input type="number" inputMode="decimal" placeholder="Height (cm)" {...field} />
 		</FormControl>
 		<FormMessage />
 	</FormItem>

@@ -12,7 +12,7 @@ interface WeightInputProps {
 export const WeightInput: FC<WeightInputProps> = ({ field }) => (
 	<FormItem>
 		<FormControl>
-			<Input type="number" placeholder="Weight (kg)" {...field} />
+			<Input type="number" inputMode="decimal" placeholder="Weight (kg)" {...field} />
 		</FormControl>
 		<FormMessage />
 	</FormItem>
