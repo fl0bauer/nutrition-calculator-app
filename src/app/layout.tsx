@@ -29,7 +29,7 @@ export default function RootLayout({
 		<html lang="en" className="h-full" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-					<div className="fixed right-0 p-6 md:p-10">
+					<div className="z-10 fixed right-0 p-6 md:p-10">
 						<ThemeToggle />
 					</div>
 
