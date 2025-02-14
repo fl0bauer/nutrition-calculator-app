@@ -1,4 +1,4 @@
-import { useEffect, HTMLAttributes, useRef, FC } from 'react';
+import { FC, HTMLAttributes, useEffect, useRef } from 'react';
 import { animate } from 'motion/react';
 import { KeyframeOptions } from 'motion';
 
@@ -9,7 +9,7 @@ export interface AnimateCountProps extends HTMLAttributes<HTMLSpanElement> {
 	ease?: KeyframeOptions['ease'];
 }
 
-const AnimateCount: FC<AnimateCountProps> = ({ className, from = 0, to, duration = 1, ease = 'circOut', ...props }) => {
+const AnimateCount: FC<AnimateCountProps> = ({ from = 0, to, duration = 1, ease = 'circOut', ...props }) => {
 	const ref = useRef<HTMLSpanElement>(null);
 
 	useEffect(() => {
