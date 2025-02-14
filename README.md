@@ -1,4 +1,4 @@
-# ⚖️ Nutrition Calculator App
+# ⚖️ [Nutrition Calculator App](https://nutrition-calculator-app.vercel.app)
 
 This app calculates your Maintenance Caloreis and Macro Nutrition Split with
 the [nutrition-calculator](https://github.com/fl0bauer/nutrition-calculator) ([npm](https://www.npmjs.com/package/nutrition-calculator))
