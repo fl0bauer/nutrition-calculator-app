@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: 'Nutrition Calculator',
 	description: 'Calculate your Maintenance Calories & Nutrition Split',
+	keywords: ['calories', 'nutrition', 'maintenance calories', 'calories calculator', 'nutrition calculator'],
 };
 
 export default function RootLayout({
