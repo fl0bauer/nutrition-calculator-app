@@ -11,12 +11,16 @@ export interface AnimateCountProps extends HTMLAttributes<HTMLSpanElement> {
 
 const AnimateCount: FC<AnimateCountProps> = ({ from = 0, to, duration = 1, ease = 'circOut', ...props }) => {
 	const ref = useRef<HTMLSpanElement>(null);
+	
+	const formatValue = (value: number) => {
+		return Intl.NumberFormat('en-US').format(+value.toFixed(0)).replaceAll(',', '.');
+	};
 
 	useEffect(() => {
 		const controls = animate(from, to, {
 			duration,
 			ease,
-			onUpdate: (value) => (ref.current!.textContent = Intl.NumberFormat('en-US').format(+value.toFixed(0))),
+			onUpdate: (value) => (ref.current!.textContent = formatValue(value)),
 		});
 
 		return () => controls.stop();
