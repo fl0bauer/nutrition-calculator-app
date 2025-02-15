@@ -4,51 +4,51 @@ import { z } from 'zod';
 import { FormControl, FormItem, FormMessage } from '@/components/ui/form';
 import { BodyMeasurementsFormSchema } from '@/components/forms/body-measurements-form/body-measurements-form-schema';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ActivityFactor } from 'nutrition-calculator';
+import { CalculateMaintenanceCalories } from 'nutrition-calculator';
 
 interface ActivityFactorOption {
-	activityFactor: ActivityFactor;
+	activity: CalculateMaintenanceCalories['activity'];
 	name: string;
 	description: string;
 }
 
 const ActivityFactorOptions: ActivityFactorOption[] = [
 	{
-		activityFactor: ActivityFactor.Sedentary,
+		activity: 'sedentary',
 		name: 'Sedentary',
 		description: 'little to no exercise',
 	},
 	{
-		activityFactor: ActivityFactor.LightActivity,
+		activity: 'lightActivity',
 		name: 'Light Activity',
 		description: 'light exercise/sports 1-3 days/week',
 	},
 	{
-		activityFactor: ActivityFactor.ModeratelyActive,
+		activity: 'moderatelyActive',
 		name: 'Moderately',
 		description: 'moderate exercise/sports 3-5 days/week',
 	},
 	{
-		activityFactor: ActivityFactor.VeryActive,
+		activity: 'veryActive',
 		name: 'Very Active',
 		description: 'hard exercise/sports 6-7 days/week',
 	},
 	{
-		activityFactor: ActivityFactor.ExtraActive,
+		activity: 'extraActive',
 		name: 'Extra Active',
 		description: 'very hard daily exercise/sports & physical job',
 	},
 ];
 
 interface ActivityFactorProps {
-	field: ControllerRenderProps<z.infer<typeof BodyMeasurementsFormSchema>, 'activityFactor'>;
+	field: ControllerRenderProps<z.infer<typeof BodyMeasurementsFormSchema>, 'activity'>;
 }
 
 export const ActivityFactorInput: FC<ActivityFactorProps> = ({ field }) => {
 	const [selectedOption, setSelectedOption] = useState<ActivityFactorOption>();
 
 	useEffect(() => {
-		setSelectedOption(ActivityFactorOptions.find(({ activityFactor }) => field.value === activityFactor));
+		setSelectedOption(ActivityFactorOptions.find(({ activity }) => field.value === activity));
 	}, [field, field.value]);
 
 	return (
@@ -64,8 +64,8 @@ export const ActivityFactorInput: FC<ActivityFactorProps> = ({ field }) => {
 						</SelectValue>
 					</SelectTrigger>
 					<SelectContent>
-						{ActivityFactorOptions.map(({ activityFactor, name, description }) => (
-							<SelectItem key={activityFactor} value={activityFactor}>
+						{ActivityFactorOptions.map(({ activity, name, description }) => (
+							<SelectItem key={activity} value={activity}>
 								<div className="flex flex-col">
 									<span>{name}</span>
 									<span className="text-muted-foreground">{description}</span>
