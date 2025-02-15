@@ -45,8 +45,8 @@ importers:
         specifier: ^0.4.4
         version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       nutrition-calculator:
-        specifier: ^1.1.1
-        version: 1.1.1
+        specifier: 2.0.0
+        version: 2.0.0
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -1665,8 +1665,8 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  nutrition-calculator@1.1.1:
-    resolution: {integrity: sha512-HV+mV/3SbejozJxTYMv79S7XZgyouCutF7/q5ptRozAy8nW7FsEoRUU34riUlQYBvv89w0whr/Z4kB1MubfXog==}
+  nutrition-calculator@2.0.0:
+    resolution: {integrity: sha512-zQX8D3aEYYIe9lHRb0odZBg+8qjV/6iKRwq+chqHq/GIhzzMlp9Ssz7SV4TNxKFWPhbU6NOhcdw83OdsjBzy5A==}
 
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
@@ -3911,7 +3911,7 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  nutrition-calculator@1.1.1:
+  nutrition-calculator@2.0.0:
     dependencies:
       zod: 3.24.1
 

@@ -24,7 +24,7 @@ export const BodyMeasurementsForm: FC<BodyMeasurementsFormProps> = ({ onSubmit }
 			weight: '' as unknown as undefined,
 			height: '' as unknown as undefined,
 			age: '' as unknown as undefined,
-			activityFactor: '' as unknown as undefined,
+			activity: '' as unknown as undefined,
 		},
 	});
 
@@ -59,7 +59,7 @@ export const BodyMeasurementsForm: FC<BodyMeasurementsFormProps> = ({ onSubmit }
 
 				<FormField
 					control={bodyMeasurementsForm.control}
-					name="activityFactor"
+					name="activity"
 					render={({ field }) => <ActivityFactorInput field={field} />}
 				/>
 

@@ -6,10 +6,10 @@ import { Logo } from '@/components/logo';
 import Confetti from 'react-confetti-boom';
 import { CalculatorCard } from '@/components/calculator-card';
 import { SummaryCard } from '@/components/summary-card';
-import { ActivityFactor, calculateMacroNutritions, calculateMaintenanceCalories, Gender } from 'nutrition-calculator';
 import { SummaryProps } from '@/components/summary';
 import { toast } from 'sonner';
 import { BodyMeasurementsFormProps } from '@/components/forms/body-measurements-form/body-measurements-form';
+import { calculateMacroNutritions, calculateMaintenanceCalories } from 'nutrition-calculator';
 
 type Screen = 'calculator' | 'result';
 
@@ -30,17 +30,16 @@ export default function Home() {
 		},
 	};
 
-	const onSubmit: BodyMeasurementsFormProps['onSubmit'] = ({ gender, weight, height, age, activityFactor }) => {
+	const onSubmit: BodyMeasurementsFormProps['onSubmit'] = ({ gender, weight, height, age, activity }) => {
 		try {
-			const calories = calculateMaintenanceCalories(
-				gender as Gender,
-				{ weight, height, age },
-				activityFactor as ActivityFactor,
-			);
-			const { carbohydrates, fat, protein } = calculateMacroNutritions(calories, {
-				carbohydrates: 50,
-				fat: 20,
-				protein: 30,
+			const calories = calculateMaintenanceCalories({ gender, weight, height, age, activity });
+			const { carbohydrates, fat, protein } = calculateMacroNutritions({
+				calories,
+				percentageSplit: {
+					carbohydrates: 50,
+					fat: 20,
+					protein: 30,
+				},
 			});
 
 			setSummary({ calories, carbohydrates, fat, protein });

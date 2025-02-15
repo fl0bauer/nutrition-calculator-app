@@ -15,7 +15,7 @@ export const BodyMeasurementsFormSchema = z.object({
 		.int({ message: 'Age must be a normal number' })
 		.min(14, { message: 'Age must be at least 14 years.' })
 		.max(100, { message: 'Age must be smaller than 100 years.' }),
-	activityFactor: z.enum(['sedentary', 'lightActivity', 'moderatelyActive', 'veryActive', 'extraActive'], {
+	activity: z.enum(['sedentary', 'lightActivity', 'moderatelyActive', 'veryActive', 'extraActive'], {
 		message: 'Please select a Activity Level',
 	}),
 });
